@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday {Name of the birthday person} 🎂🎈🎉🥳</title>
+
+  <!-- 🌀 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🎨 Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- 🕊️ Vanta.js & Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.birds.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
+
+  <!-- ✨ Animate.css & Hover.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.2/css/hover-min.css" />
+
+  <!-- 🎨 Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="flex items-center justify-center min-h-screen font-[Poppins] relative overflow-hidden">
+
+  <!-- Overlay to start audio -->
+  <div id="overlay" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 cursor-pointer">
+    <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center px-4">Tap anywhere to start 🎶</h1>
+  </div>
+
+  <!-- 🌈 Vanta Background Layers -->
+  <div id="vanta-clouds" class="absolute inset-0 -z-20"></div>
+  <div id="vanta-birds" class="absolute inset-0 -z-10"></div>
+
+  <!-- 📖 Flipbook + Reset Button -->
+  <div class="flex flex-col items-center gap-6 z-10 animate__animated animate__fadeInUp animate__slow px-2">
+    <div id="flipbook" class="book animate__animated animate__fadeInUp animate__delay-1s">
+
+      <!-- Page 1 -->
+      <div class="page page1 flex flex-col justify-center items-center text-center px-4 sm:px-6">
+        <div class="img-container">
+          <img src="images/hello.png" alt="hello_image">
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 animate__animated animate__fadeInDown">Hello {Name of the birthday person} 💫</h1>
+        <p class="text-base sm:text-lg mt-2 animate__animated animate__fadeInUp animate__delay-1s">
+          {Introductory birthday message like :- I've made something for your Birthday, I hope you'll like it 💝}
+        </p>
+        <p class="mt-2 sm:mt-4 text-sm sm:text-base opacity-80 animate__animated animate__fadeInUp animate__delay-2s">
+          (Tap anywhere inside the box to flip the pages✨)
+        </p>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="page page2 flex flex-col justify-center items-center text-center px-4 sm:px-6">
+        <div class="img-container">
+          <img src="images/happytears.jpg" alt="happytears_image">
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-semibold mt-4 animate__animated animate__fadeInLeft">💭</h2>
+        <p class="mt-2 text-base sm:text-lg animate__animated animate__fadeInRight animate__delay-1s">
+          { Wishing message }
+        </p>
+      </div>
+
+      <!-- Page 3 -->
+      <div class="page page3 flex flex-col justify-center items-center text-center px-4 sm:px-6">
+        <div class="img-container">
+          <img src="images/cake.jpg" alt="cake_image">
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 animate__animated animate__zoomIn">🎂𝐻𝒶𝓅𝓅𝓎 𝒷𝒾𝓇𝓉𝒽𝒹𝒶𝓎 to You { Name of the birthday Person}🎉</h2>
+        <p class="mt-2 text-base sm:text-lg animate__animated animate__fadeInUp animate__delay-1s">
+          { Wishing Message }
+        </p>
+      </div>
+
+      <!-- Page 4 -->
+      <div class="page page4 flex flex-col justify-center items-center text-center px-4 sm:px-6">
+        <div class="img-container">
+          <img src="images/startruck.jpg" alt="startruck_image">
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-semibold mt-4 animate__animated animate__fadeInUp">PARTY TIME 🥳</h2>
+        <p class="mt-2 text-base sm:text-lg animate__animated animate__fadeInUp animate__delay-1s">
+          { Wishing Message }
+        </p>
+      </div>
+
+      <!-- Page 5 -->
+      <div class="page page5 flex flex-col justify-center items-center text-center px-4 sm:px-6">
+        <div class="img-container">
+          <img src="images/smiling_angel.jpg" alt="smiling_angel_image">
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-semibold mt-4 animate__animated animate__fadeInDown">{ Ending title which you want } Always 💌</h2>
+        <p class="mt-2 text-base sm:text-lg animate__animated animate__fadeInUp animate__delay-1s">
+          { Wishing Message }
+        </p>
+        <p class="mt-2 text-sm sm:text-base opacity-70 animate__animated animate__fadeIn animate__delay-2s">
+          (Tap reset below to relive it again ✨)
+        </p>
+      </div>
+    </div>
+
+    <!-- Reset Button -->
+    <button id="reset-btn"
+      class="relative overflow-hidden group font-semibold text-lg sm:text-xl text-white py-2 sm:py-3 px-4 sm:px-7 rounded-2xl shadow-lg transition-all duration-500 hover:scale-105">
+      <span id="reset-text" class="relative z-10 flex items-center gap-2">
+        🔄 Reset to Page 1
+      </span>
+      <span
+        class="absolute inset-0 bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 opacity-0 group-hover:opacity-100 blur-md transition-all duration-500"></span>
+    </button>
+  </div>
+
+  <!-- 🎶 Birthday Song -->
+  <audio id="birthday-song" autoplay loop muted>
+    <source src="audio/birthday_song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
